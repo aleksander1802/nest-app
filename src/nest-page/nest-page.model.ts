@@ -1,4 +1,4 @@
-export enum TopLevelCategoty {
+export enum TopLevelCategory {
     Courses,
     Services,
     Books,
@@ -6,7 +6,8 @@ export enum TopLevelCategoty {
 }
 
 export class NestPageModel {
-    firstLevelCategory: TopLevelCategoty;
+    _id: string;
+    firstLevelCategory: TopLevelCategory;
     secondCategory: string;
     title: string;
     category: string;
