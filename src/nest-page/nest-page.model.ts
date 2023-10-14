@@ -34,7 +34,7 @@ export class NestPageAdvantage {
 export interface NestPageModel extends Base {}
 export class NestPageModel extends TimeStamps {
     @prop({ enum: TopLevelCategory })
-    firstLevelCategory: TopLevelCategory;
+    firstCategory: TopLevelCategory;
 
     @prop()
     secondCategory: string;
