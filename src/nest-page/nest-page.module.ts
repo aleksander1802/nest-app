@@ -17,5 +17,6 @@ import { NestPageService } from './nest-page.service';
         ]),
     ],
     providers: [NestPageService],
+    exports: [NestPageService],
 })
 export class NestPageModule {}

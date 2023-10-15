@@ -23,6 +23,10 @@ export class NestPageService {
         return this.nestPageModel.findOne({ alias }).exec();
     }
 
+    async findAll() {
+        return this.nestPageModel.find({}).exec();
+    }
+
     async findByCategory(firstCategory: TopLevelCategory) {
         return this.nestPageModel
             .aggregate()
