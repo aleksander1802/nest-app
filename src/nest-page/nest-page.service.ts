@@ -25,7 +25,14 @@ export class NestPageService {
 
     async findByCategory(firstCategory: TopLevelCategory) {
         return this.nestPageModel
-            .find({ firstCategory }, { alias: 1, secondCategory: 1, title: 1 })
+            .aggregate()
+            .match({
+                firstCategory,
+            })
+            .group({
+                _id: { secondCategory: '$secondCategory' },
+                pages: { $push: { alias: '$alias', title: '$title' } },
+            })
             .exec();
     }
 
