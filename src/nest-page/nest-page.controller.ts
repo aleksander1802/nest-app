@@ -76,4 +76,9 @@ export class NestPageController {
     async find(@Body() { firstCategory }: FindNestPageDto) {
         return this.nestPageService.findByCategory(firstCategory);
     }
+
+    @Get('textSearch/:text')
+    async textSearch(@Param('text') text: string) {
+        return this.nestPageService.findByText(text);
+    }
 }

@@ -29,6 +29,12 @@ export class NestPageService {
             .exec();
     }
 
+    async findByText(text: string) {
+        return this.nestPageModel
+            .find({ $text: { $search: text, $caseSensitive: false } })
+            .exec();
+    }
+
     async deleteById(id: string) {
         return this.nestPageModel.findByIdAndRemove(id).exec();
     }

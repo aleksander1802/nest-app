@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-declaration-merging */
-import { prop } from '@typegoose/typegoose';
+import { index, prop } from '@typegoose/typegoose';
 import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
 export enum TopLevelCategory {
@@ -32,6 +32,8 @@ export class NestPageAdvantage {
 }
 
 export interface NestPageModel extends Base {}
+
+@index({ '$**': 'text' })
 export class NestPageModel extends TimeStamps {
     @prop({ enum: TopLevelCategory })
     firstCategory: TopLevelCategory;
@@ -42,7 +44,7 @@ export class NestPageModel extends TimeStamps {
     @prop({ unique: true })
     alias: string;
 
-    @prop()
+    @prop({ text: true })
     title: string;
 
     @prop()
